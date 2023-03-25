@@ -1,45 +1,45 @@
 // variable to store and loop through scheduler
 // variable to store and loop through scheduler
-var myDay = [
+var todaySchedule = [
     {
         id: "0",
         hour: "09",
-        time: 09,
+        time: "09",
         meridiem: "am",
         reminder: ""
     },
     {
         id: "1",
         hour: "10",
-        time: 10,
+        time: "10",
         meridiem: "am",
         reminder: ""
     },
     {
         id: "2",
         hour: "11",
-        time: 11,
+        time: "11",
         meridiem: "am",
         reminder: ""
     },
     {
         id: "3",
         hour: "12",
-        time: 12,
+        time: "12",
         meridiem: "pm",
         reminder: ""
     },
     {
         id: "4",
         hour: "01",
-        time: 13,
+        time: "13",
         meridiem: "pm",
         reminder: ""
     },
     {
         id: "5",
         hour: "02",
-        time: 14,
+        time: "14",
         meridiem: "pm",
         reminder: ""
     },
@@ -60,7 +60,7 @@ var myDay = [
     {
         id: "8",
         hour: "05",
-        time: 17,
+        time: "17",
         meridiem: "pm",
         reminder: ""
     },
@@ -96,29 +96,29 @@ else {currentMeridiem = "AM"};
 
 // saves data to localStorage
 function saveItems() {
-    localStorage.setItem("myDay", JSON.stringify(myDay));
+    localStorage.setItem("todaySchedule", JSON.stringify(todaySchedule));
 }
 
 // sets any data in localStorage to the view
 function displayItems() {
-    myDay.forEach(function (_currentHourBlock) {
+    todaySchedule.forEach(function (_currentHourBlock) {
         $(`#${_currentHourBlock.id}`).val(_currentHourBlock.reminder);
     })
 }
 
 // sets localStorage data to view if any
 function init() {
-    var itinerary = JSON.parse(localStorage.getItem("myDay"));
+    var itinerary = JSON.parse(localStorage.getItem("todaySchedule"));
 
     if (itinerary) {
-        myDay = itinerary;
+        todaySchedule = itinerary;
     }
 
     saveItems();
     displayItems();
 }
 
-myDay.forEach(function(currentHourBlock) {
+todaySchedule.forEach(function(currentHourBlock) {
     // creates timeblocks row
     var hourBlock = $("<div>").attr({
         "class": "row time-block"
@@ -172,7 +172,7 @@ init();
 $(".saveBtn").on("click", function(event) {
     event.preventDefault();
     var savedTodos = $(this).siblings(".description").children(".future").attr("id");
-    myDay[savedTodos].reminder = $(this).siblings(".description").children(".future").val();
+    todaySchedule[savedTodos].reminder = $(this).siblings(".description").children(".future").val();
     //console log
     //console.log(savedTodos);
     saveItems();
