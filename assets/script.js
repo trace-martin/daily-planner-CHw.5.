@@ -46,14 +46,14 @@ var myDay = [
     {
         id: "6",
         hour: "03",
-        time: 15,
+        time: "15",
         meridiem: "pm",
         reminder: ""
     },
     {
         id: "7",
         hour: "04",
-        time: 16,
+        time: "16",
         meridiem: "pm",
         reminder: ""
     },
@@ -71,7 +71,6 @@ var saveBtn = document.getElementById('id..');
 // saveBtn.addEventListener('click', save);
 
 // CALANDER - DISPLAYS CURRENT DATE
-// currentTime = 
 
 var displayDate = document.getElementById('currentDay');
 const currentDay = new Date();
