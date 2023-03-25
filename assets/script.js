@@ -1,4 +1,5 @@
 // variable to store and loop through scheduler
+// variable to store and loop through scheduler
 var myDay = [
     {
         id: "0",
