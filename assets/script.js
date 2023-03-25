@@ -3,63 +3,63 @@ var myDay = [
     {
         id: "0",
         hour: "09",
-        time: "09",
+        time: 09,
         meridiem: "am",
         reminder: ""
     },
     {
         id: "1",
         hour: "10",
-        time: "10",
+        time: 10,
         meridiem: "am",
         reminder: ""
     },
     {
         id: "2",
         hour: "11",
-        time: "11",
+        time: 11,
         meridiem: "am",
         reminder: ""
     },
     {
         id: "3",
         hour: "12",
-        time: "12",
+        time: 12,
         meridiem: "pm",
         reminder: ""
     },
     {
         id: "4",
         hour: "01",
-        time: "13",
+        time: 13,
         meridiem: "pm",
         reminder: ""
     },
     {
         id: "5",
         hour: "02",
-        time: "14",
+        time: 14,
         meridiem: "pm",
         reminder: ""
     },
     {
         id: "6",
         hour: "03",
-        time: "15",
+        time: 15,
         meridiem: "pm",
         reminder: ""
     },
     {
         id: "7",
         hour: "04",
-        time: "16",
+        time: 16,
         meridiem: "pm",
         reminder: ""
     },
     {
         id: "8",
         hour: "05",
-        time: "17",
+        time: 17,
         meridiem: "pm",
         reminder: ""
     },
@@ -94,6 +94,18 @@ if (currentHour > 11){
 }
 else {currentMeridiem = "AM"};
 
+// saves data to localStorage
+function saveItems() {
+    localStorage.setItem("myDay", JSON.stringify(myDay));
+}
+
+// sets any data in localStorage to the view
+function displayItems() {
+    myDay.forEach(function (_currentHourBlock) {
+        $(`#${_currentHourBlock.id}`).val(_currentHourBlock.reminder);
+    })
+}
+
 // sets localStorage data to view if any
 function init() {
     var itinerary = JSON.parse(localStorage.getItem("myDay"));
@@ -101,6 +113,9 @@ function init() {
     if (itinerary) {
         myDay = itinerary;
     }
+
+    saveItems();
+    displayItems();
 }
 
 myDay.forEach(function(currentHourBlock) {
@@ -132,12 +147,12 @@ myDay.forEach(function(currentHourBlock) {
         })
     } else if (currentHourBlock.time === currentHour) {
         itineraryContents.attr({
-            "class": "col-8 col-md-12 present",
+            "class": "col-8 col-md-12 description present",
             "rows": "3" 
         })
     } else if (currentHourBlock.time > currentHour) {
         itineraryContents.attr({
-            "class": "col-8 col-md-12 future",
+            "class": "col-8 col-md-12 description future",
             "rows": "3" 
         })
     }
@@ -147,12 +162,10 @@ myDay.forEach(function(currentHourBlock) {
             "class": "btn saveBtn col-2 col-md-1",
             "aria-label": "save"});
         var saveButton = $("<i class='fas fa-save' aria-hidden='true'></i>")
-
         
         saveItinerary.append(saveButton);
         hourBlock.append(hourField, hourItinerary, saveItinerary);
 })
-
 init();
 
 // saves data to be used in localStorage..
@@ -160,5 +173,8 @@ $(".saveBtn").on("click", function(event) {
     event.preventDefault();
     var savedTodos = $(this).siblings(".description").children(".future").attr("id");
     myDay[savedTodos].reminder = $(this).siblings(".description").children(".future").val();
-    console.log(savedTodos);
+    //console log
+    //console.log(savedTodos);
+    saveItems();
+    displayItems();
 })
