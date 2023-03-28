@@ -10,7 +10,7 @@ First:
 - When you open the daily planner, you will see time blocks from 9am - 5pm
 
 Next: 
-- You will see that each block is seperated by colors. Grey is past, red is present, and green is future.
+- You will see that each block is seperated by a color. Grey is past, red is present, and green is future.
 
 Then: 
 - You will be able to save information in all, past, present, and future time blocks.
