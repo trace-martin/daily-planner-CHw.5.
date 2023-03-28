@@ -6,11 +6,14 @@ https://trace-martin.github.io/daily-planner-CHw.5./
 
 ### User Instructions
 
-First: When you open the daily planner, you will see time blocks from 9am - 5pm
+First: 
+- When you open the daily planner, you will see time blocks from 9am - 5pm
 
-Next: You will see that each block is seperated by colors. Grey is past, red is present, and green is future.
+Next: 
+- You will see that each block is seperated by colors. Grey is past, red is present, and green is future.
 
-Then: You will be able to save information in all, past, present, and future time blocks.
+Then: 
+- You will be able to save information in all, past, present, and future time blocks.
 
 
 ## Acceptance Criteria
@@ -34,10 +37,15 @@ THEN the saved events persist
 
 ![image](https://user-images.githubusercontent.com/123417800/228023309-38c981c7-1c51-41d6-b4ba-97fc0d917602.png)
 
-## Code Guide
-
-(Logan Moody)[https://github.com/lbmoody]
-(freeCodeCamp)[https://www.freecodecamp.org/news/javascript-get-current-date-todays-date-in-js/]
-
 ## Authors:
 Trace Martin
+
+## Code Guide
+
+[Logan Moody](https://github.com/lbmoody)
+<br>
+[freeCodeCamp](https://www.freecodecamp.org/news/javascript-get-current-date-todays-date-in-js/)
+<br>
+[Bootstrap](https://getbootstrap.com/)
+<br>
+[JQuery](https://jqueryui.com/)
